@@ -3,7 +3,7 @@
 *Rajmi Investments · Lovable-projekt `b474d108-…` · 2026. október 3.*
 *Alap: az üzleti terv 4. fejezete („Marketing és értékesítési stratégia”), a könyv sablonjának három pontja szerint: **Pozicionálás → Marketingstratégia → Értékesítési terv**.*
 
-> **Státusz: TERVEZET.** A Lovable-projekthez még nem nyúltam. Minden pont mellett jelölöm, hogy **mi van most**, és **mire cserélném**. A végén kész Lovable-utasítások vannak, amelyeket jóváhagyás után küldenék el, akár egyenként.
+> **Státusz (2026. október 3.):** az 1. (tisztítás) és a 2. (pozicionálás) fázis elkészült a Lovable-projektben (commit `55ba630`). A 3–6. fázis még tervezet; az online fizetés a tulajdonos döntéséig szünetel.
 
 ---
 
