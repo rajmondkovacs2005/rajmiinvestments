@@ -14,7 +14,7 @@ A Rajmi Investments egy egyszemélyes, online, magyar nyelvű **pénzügyi eduk�
 - **Belépési pont:** ingyenes, 30 perces online konzultáció (a foglalási rendszer már működik).
 - **Bevételi modell [javaslat]:** fizetős 1:1 mentorcsomagok + havidíjas elemzői közösség + (2. évtől) online kurzus.
 - **Kapacitás:** havonta legfeljebb 5 új 1:1 ügyfél (a weboldal ezt már kommunikálja).
-- **Pénzügyi cél [javaslat]:** 1. év ≈ 5,1 M Ft, 3. év ≈ 33 M Ft árbevétel; az 1. évben már pozitív, de szerény eredmény.
+- **Pénzügyi cél [javaslat, kezdő projekthez igazított alacsony árakkal]:** 1. év ≈ 1,9 M Ft, 3. év ≈ 14 M Ft árbevétel; az 1. év nagyjából nullszaldós, a cél ekkor az első ügyfelek, valódi referenciák és az alapító tagok megszerzése.
 - **Legnagyobb kockázat:** a **szabályozás**. A „személyre szabott portfólió – mibe, mennyit” típusú szolgáltatás Magyarországon engedélyköteles befektetési tanácsadásnak minősülhet. Ezért a terv az indulást **oktatási jellegű** szolgáltatásra építi, és párhuzamosan kiépíti a jogszerű tanácsadói státuszt (részletek: 7. fejezet).
 
 ---
@@ -42,7 +42,7 @@ Ez a weboldal két kulcsüzenetéből áll össze: *„Nem gyors meggazdagodást
 - **Indulás: egyéni vállalkozó** (bejegyzés Ügyfélkapun/webes felületen, díjmentes).
   - Adózás: **átalányadó** (szolgáltatásnál jellemzően 40% költséghányad) vagy – ha kizárólag magánszemélyeknek számláz – **KATA** (havi 50 000 Ft, éves 18 M Ft bevételi korlát). **[ellenőrizendő a 2026–2027-es szabályok szerint, könyvelővel.]**
   - Alanyi ÁFA-mentesség választása, amíg a bevétel az értékhatár alatt marad. **[értékhatár ellenőrizendő.]**
-- **3. évtől (≈ 25–30 M Ft bevétel felett): Kft.** – korlátolt felelősség, társasági adó + osztalék, és ez a forma szükséges lehet egy későbbi engedélyes tevékenységhez vagy partnerséghez is.
+- **4. évtől (≈ 18–20 M Ft bevétel felett): Kft.** – korlátolt felelősség, társasági adó + osztalék, és ez a forma szükséges lehet egy későbbi engedélyes tevékenységhez vagy partnerséghez is.
 
 **Indulás ideje [javaslat]**
 | Mérföldkő | Dátum |
@@ -51,7 +51,8 @@ Ez a weboldal két kulcsüzenetéből áll össze: *„Nem gyors meggazdagodást
 | Weboldal javítása és publikálása (lásd 8. fejezet) | 2026. október vége |
 | Egyéni vállalkozás bejegyzése, számlázó- és fizetési rendszer | 2026. november 1. |
 | Első fizetős ügyfelek (soft launch) | 2026. november |
-| Hivatalos indulás, havidíjas közösség nyitása | 2027. január 1. |
+| Közösség megnyitása alapító tagoknak (várólista nélkül) | az oldal publikálásakor |
+| Online fizetés bekötése | később, a tulajdonos döntése szerint |
 
 ---
 
@@ -76,19 +77,19 @@ Az árakat úgy állítottam be, hogy egy 20–35 éves, átlagos jövedelmű ma
 | Termék | Tartalom | Ár (bruttó) | Státusz |
 |---|---|---|---|
 | **Ingyenes konzultáció** | 30 perc online, igényfelmérés | 0 Ft | Kész (foglalórendszer működik) |
-| **Stratégiai óra** | 60 perc, egy konkrét kérdés (pl. TBSZ, ETF vs. alap, vésztartalék) | 19 900 Ft | Indításra kész |
-| **„Alapoktól a rendszerig” mentorcsomag** | 4 × 60 perc 1:1 + írásos összefoglaló + 30 nap e-mailes kérdés | 59 900 Ft | Indításra kész |
-| **Portfólió-átvilágítás (oktatási formában)** | A meglévő portfólió költség-, diverzifikációs és kockázati szempontú elemzése, *konkrét vételi/eladási ajánlás nélkül* | 34 900 Ft | Indításra kész, jogi szövegezéssel |
-| **Elemzői közösség (Discord/Telegram)** | Heti piaci összefoglaló, saját trade-napló valós időben, oktató élő adások; nem személyre szabott | 9 900 Ft/hó (3. évtől 10 900 Ft) | 2027. január |
+| **Stratégiai óra** | 60 perc, egy konkrét kérdés (pl. TBSZ, ETF vs. alap, vésztartalék) | 7 900 Ft | Indításra kész |
+| **„Alapoktól a rendszerig” mentorcsomag** | 4 × 60 perc 1:1 + írásos összefoglaló + 30 nap e-mailes kérdés | 24 900 Ft | Indításra kész |
+| **Portfólió-átvilágítás (oktatási formában)** | A meglévő portfólió költség-, diverzifikációs és kockázati szempontú elemzése, *konkrét vételi/eladási ajánlás nélkül* | 12 900 Ft | Indításra kész, jogi szövegezéssel |
+| **Elemzői közösség (Discord/Telegram)** | Heti piaci összefoglaló, saját trade-napló valós időben, oktató élő adások; nem személyre szabott | **Alapító tagság:** első hónap ingyenes, utána 2 990 Ft/hó; később új tagoknak 4 990 Ft/hó | az oldal publikálásakor |
 
 **Fejlesztés alatt álló termékek**
 | Termék | Leírás | Tervezett indulás | Ár |
 |---|---|---|---|
-| **Online videókurzus** | „Fegyelmezett befektető” – 8 modul: kockázatkezelés, pozícióméretezés, pszichológia, TBSZ/NYESZ, ETF-ek | 2027. Q2 | 39 900 Ft |
+| **Online videókurzus** | „Fegyelmezett befektető” – 8 modul: kockázatkezelés, pozícióméretezés, pszichológia, TBSZ/NYESZ, ETF-ek | 2027. Q2 | 14 900 Ft |
 | **Tagi felület a weboldalon** | Supabase-alapú bejelentkezés, kurzus- és közösségi tartalmak egy helyen (az Auth és az adatbázis már adott) | 2027. Q2 | – |
 | **Élő trade-napló** | A jelenleg kódba égetett trade-lista Airtable/Supabase adatbázisból töltődik (az Airtable-integráció már létezik) | 2026. Q4 | – |
 | **Hírlevél** | Heti piaci összefoglaló; az e-mail-infrastruktúra (sor, leiratkozás, suppression) már kész | 2026. Q4 | ingyenes (lead) |
-| **Vállalati workshop** | Pénzügyi tudatosság KKV-k és cégek munkavállalóinak | 2028 | 250 000 Ft/alkalom |
+| **Vállalati workshop** | Pénzügyi tudatosság KKV-k és cégek munkavállalóinak | 2028 | 120 000 Ft/alkalom |
 | **Engedélyes tanácsadás** | Valódi, személyre szabott befektetési tanácsadás – csak engedély/függő ügynöki státusz után | 2028– | 2. fázis |
 
 **Szolgáltatások (kiegészítők)**
@@ -173,7 +174,7 @@ Az árakat úgy állítottam be, hogy egy 20–35 éves, átlagos jövedelmű ma
 | Hírlevél | Heti piaci összefoglaló (az infrastruktúra kész) | heti 1 | megnyitás > 40%, kattintás > 5% |
 | SEO / blog | A meglévő GYIK-témák (TBSZ, NYESZ, OBA vs. BEVA, adózás) önálló cikkekké bontása | havi 2 cikk | organikus látogató |
 | Lead-mágnesek | Pénzügyi önteszt és befektetési kalkulátor → e-mail-cím megadásával részletes eredmény | folyamatos | konverzió látogató→lead ≥ 8% |
-| Fizetett hirdetés | Meta/YouTube kis költségkerettel, kizárólag oktatási tartalom népszerűsítése (pénzügyi hirdetési szabályok betartásával) | 1. év: 100 000 Ft/hó | CPL < 1 000 Ft |
+| Fizetett hirdetés | Meta/YouTube kis költségkerettel, kizárólag oktatási tartalom népszerűsítése (pénzügyi hirdetési szabályok betartásával) | 1. év: 50 000 Ft/hó | CPL < 1 000 Ft |
 | LinkedIn | Szakmai jelenlét, B2B workshopok előkészítése | heti 1 | – |
 
 **Offline**
@@ -193,8 +194,8 @@ Látogató (havi 3 000)
 ### 4.3 Értékesítési terv
 - **Csatornák:**
   1. **Közvetlen értékesítés** a konzultáción keresztül (fő csatorna az 1:1 csomagokhoz).
-  2. **Webáruház / online fizetés** a weboldalon – a `submit-order` funkció és a rendelés-visszaigazoló e-mail már létezik; ehhez Stripe vagy Barion fizetést és automatikus számlázást (Számlázz.hu / Billingo) kell kötni. Az alapértelmezett pénznemet **USD-ről HUF-ra** kell állítani.
-  3. **Előfizetés** a közösséghez (havi automatikus terhelés).
+  2. **Webáruház / online fizetés** a weboldalon – ⏸ **később** (az oldal még tervezési fázisban van); a `submit-order` funkció és a rendelés-visszaigazoló e-mail már létezik; ehhez Stripe vagy Barion fizetést és automatikus számlázást (Számlázz.hu / Billingo) kell kötni. Az alapértelmezett pénznemet **USD-ről HUF-ra** kell állítani.
+  3. **Előfizetés** a közösséghez – az alapító tagok első hónapja ingyenes, a díjfizetés módja később dől el.
   4. **Partnerek (2. évtől):** affiliate-megállapodás más oktatókkal, **de nem** brókerekkel vagy pénzügyi termékekkel (különben sérül a „független, jutalékmentes” ígéret).
 - **Ajánlói program:** meglévő ügyfél ajánlása után 1 hónap ingyenes közösségi tagság.
 - **Garancia:** mentorcsomagnál az első alkalom után feltétel nélküli visszatérítés.
@@ -255,56 +256,56 @@ Mivel szolgáltatásról van szó, a „gyártás” a szolgáltatásnyújtási 
 | Szakmai képzés / minősítés megkezdése (pl. tőkepiaci vagy EFPA-képesítés) | 250 000 Ft |
 | Technológia első 6 hónapra (Lovable, Supabase, domain, e-mail, TradingView) | 180 000 Ft |
 | Eszközök (mikrofon, kamera, világítás a videókhoz) | 150 000 Ft |
-| Indulási marketing (3 hónap hirdetés + tartalomgyártás) | 300 000 Ft |
+| Indulási marketing (3 hónap hirdetés + tartalomgyártás) | 150 000 Ft |
 | Arculati finomítás, valódi portréfotók | 50 000 Ft |
 | Működési tartalék (≈ 6 hónap fix költség) | 600 000 Ft |
-| **Összesen** | **≈ 1 930 000 Ft** |
+| **Összesen** | **≈ 1 780 000 Ft** |
 
 ### 6.2 Pénzügyi előrejelzések – bevételek és kiadások az első 5 évre
 
 **Bevételi feltevések**
 | Bevételi forrás | 1. év (2027) | 2. év | 3. év | 4. év | 5. év |
 |---|---|---|---|---|---|
-| Mentorcsomag (db × átlagár) | 30 × 45 000 | 48 × 55 000 | 55 × 60 000 | 60 × 65 000 | 60 × 70 000 |
-| Stratégiai óra (db × 19 900) | 40 | 60 | 60 | 70 | 70 |
-| Közösség (átlagos előfizető × havidíj × 12) | 25 × 9 900 | 70 × 9 900 | 130 × 10 900 | 180 × 10 900 | 230 × 10 900 |
-| Online kurzus (db × 39 900) | – | 120 | 250 | 320 | 400 |
-| B2B workshop (db × 250 000) | – | – | 6 | 10 | 14 |
+| Mentorcsomag (db × átlagár) | 30 × 22 000 | 48 × 24 900 | 55 × 27 900 | 60 × 29 900 | 60 × 32 900 |
+| Stratégiai óra (db × ár) | 40 × 7 900 | 60 × 7 900 | 60 × 9 900 | 70 × 9 900 | 70 × 9 900 |
+| Közösség (átlagos fizető tag × havidíj × 12) | 25 × 2 990 | 70 × 3 990 (vegyes) | 130 × 4 990 | 180 × 4 990 | 230 × 4 990 |
+| Online kurzus (db × 14 900) | – | 120 | 250 | 320 | 400 |
+| B2B workshop (db × 120 000) | – | – | 6 | 10 | 14 |
 
 **Eredménykimutatás (millió Ft)**
 | | 1. év | 2. év | 3. év | 4. év | 5. év |
 |---|---|---|---|---|---|
-| Mentorcsomag | 1,35 | 2,64 | 3,30 | 3,90 | 4,20 |
-| Stratégiai óra | 0,80 | 1,19 | 1,19 | 1,39 | 1,39 |
-| Közösségi előfizetés | 2,97 | 8,32 | 17,00 | 23,54 | 30,08 |
-| Online kurzus | – | 4,79 | 9,98 | 12,77 | 15,96 |
-| B2B workshop | – | – | 1,50 | 2,50 | 3,50 |
-| **Árbevétel összesen** | **5,12** | **16,94** | **32,97** | **44,10** | **55,13** |
-| Technológia és szoftver | 0,40 | 0,60 | 0,90 | 1,10 | 1,30 |
-| Marketing | 1,20 | 2,40 | 4,00 | 5,00 | 6,00 |
-| Könyvelés, jog, biztosítás | 0,50 | 0,70 | 1,50 | 1,80 | 2,00 |
+| Mentorcsomag | 0,66 | 1,20 | 1,53 | 1,79 | 1,97 |
+| Stratégiai óra | 0,32 | 0,47 | 0,59 | 0,69 | 0,69 |
+| Közösségi tagdíj | 0,90 | 3,35 | 7,78 | 10,78 | 13,77 |
+| Online kurzus | – | 1,79 | 3,73 | 4,77 | 5,96 |
+| B2B workshop | – | – | 0,72 | 1,20 | 1,68 |
+| **Árbevétel összesen** | **1,88** | **6,81** | **14,35** | **19,23** | **24,07** |
+| Technológia és szoftver | 0,40 | 0,50 | 0,70 | 0,90 | 1,10 |
+| Marketing | 0,60 | 1,20 | 2,00 | 2,50 | 3,00 |
+| Könyvelés, jog, biztosítás | 0,50 | 0,60 | 0,80 | 1,00 | 1,20 |
 | Képzés, minősítés | 0,25 | 0,30 | 0,30 | 0,30 | 0,30 |
-| Fizetési díjak (~2,5%) | 0,13 | 0,42 | 0,82 | 1,10 | 1,38 |
-| Külsős segítség (vágó, közösségi moderátor, asszisztens) | – | 1,20 | 3,60 | 6,00 | 8,40 |
-| **Működési költség összesen** | **2,48** | **5,62** | **11,12** | **15,30** | **19,38** |
-| **Adózás előtti eredmény** | **2,64** | **11,32** | **21,85** | **28,80** | **35,75** |
+| Fizetési díjak (~2,5%) | 0,05 | 0,17 | 0,36 | 0,48 | 0,60 |
+| Külsős segítség (vágó, közösségi moderátor, asszisztens) | – | 0,60 | 1,20 | 2,40 | 3,60 |
+| **Működési költség összesen** | **1,80** | **3,37** | **5,36** | **7,58** | **9,80** |
+| **Adózás előtti eredmény** | **0,08** | **3,44** | **8,99** | **11,65** | **14,27** |
 
 **Megjegyzések az előrejelzéshez**
 - Az eredmény **még nem tartalmazza** az alapító saját bérét/vállalkozói kivétjét és a személyes adókat/járulékokat – ezek a választott adózási formától függnek (KATA/átalányadó/Kft.).
-- A 3. évtől a bevétel meghaladja a KATA-korlátot és valószínűleg az alanyi ÁFA-mentesség határát is → **Kft. + ÁFA-kör** szükséges; ekkor a 27%-os ÁFA miatt vagy az árakat kell emelni, vagy a nettó bevétel ≈ 21%-kal csökken. **Ezt a 2. év végén újra kell tervezni.**
-- A legnagyobb érzékenység a **közösségi előfizetők számán** van (3. évben a bevétel ≈ 50%-a).
+- A 4. évtől a bevétel meghaladja a KATA-korlátot és valószínűleg az alanyi ÁFA-mentesség határát is → **Kft. + ÁFA-kör** szükséges; ekkor a 27%-os ÁFA miatt vagy az árakat kell emelni, vagy a nettó bevétel ≈ 21%-kal csökken. **Ezt a 3. év végén újra kell tervezni.**
+- A legnagyobb érzékenység a **közösségi előfizetők számán** van (3. évben a bevétel ≈ 54%-a).
 
 **Forgatókönyvek (3. év árbevétele)**
 | Forgatókönyv | Feltevés | Árbevétel |
 |---|---|---|
-| Pesszimista | Közösség átlag 60 fő, kurzus 100 db, nincs B2B | ≈ 16 M Ft |
-| **Bázis** | fenti táblázat | **≈ 33 M Ft** |
-| Optimista | Közösség átlag 220 fő, kurzus 400 db, 10 workshop | ≈ 52 M Ft |
+| Pesszimista | Közösség átlag 60 fő, kurzus 100 db, nincs B2B | ≈ 7 M Ft |
+| **Bázis** | fenti táblázat | **≈ 14 M Ft** |
+| Optimista | Közösség átlag 220 fő, kurzus 400 db, 10 workshop | ≈ 22 M Ft |
 
-**Fedezeti pont:** az 1. év fix költségei (≈ 2,35 M Ft/év ≈ 196 000 Ft/hó) havi **≈ 4 mentorcsomaggal** vagy **≈ 20 közösségi előfizetővel** fedezhetők.
+**Fedezeti pont:** az 1. év fix költségei (≈ 1,75 M Ft/év ≈ 146 000 Ft/hó) havi **≈ 6 mentorcsomaggal** vagy **≈ 49 fizető alapító taggal** fedezhetők. Az alacsony árak miatt az 1. év célja nem a profit, hanem a referenciák és a közösség felépítése; az árak a 2–3. évtől, valódi eredmények birtokában emelhetők.
 
 ### 6.3 Finanszírozási igények
-- **Külső finanszírozás nem szükséges.** A ≈ 1,9 M Ft-os indulótőke saját megtakarításból fedezhető (bootstrapping), ami egy pénzügyi oktatónál hitelességi kérdés is: *nem hitelből indul.*
+- **Külső finanszírozás nem szükséges.** A ≈ 1,8 M Ft-os indulótőke saját megtakarításból fedezhető (bootstrapping), ami egy pénzügyi oktatónál hitelességi kérdés is: *nem hitelből indul.*
 - Ha a saját tőke nem elegendő: az indulás a jogi csomagra (400 000 Ft) és a tartalékra szűkíthető, a marketing a bevételekből finanszírozható → minimális indulótőke ≈ **900 000 Ft**.
 - Opcionálisan: fiatal vállalkozóknak szóló állami/uniós induló támogatások (időszakos kiírások – **[ellenőrizendő az aktuális pályázati kínálat]**).
 - **Kerülendő:** befektetőtől pénzt bevonni, vagy ügyfelek pénzét kezelni – ez külön engedélyhez kötött tevékenység lenne.
@@ -319,7 +320,7 @@ Mivel szolgáltatásról van szó, a „gyártás” a szolgáltatásnyújtási 
 |---|---|---|
 | **Befektetési tanácsadás engedély nélkül** (Bszt. – 2007. évi CXXXVIII. tv.) | Konkrét pénzügyi eszközre vonatkozó, személyre szabott ajánlás (pl. „ebből a részvényből vegyél ennyit”) engedélyköteles befektetési szolgáltatás. A weboldal „Személyre szabott portfólió – mibe, mennyit” szövege ilyennek tűnhet. | 1. fázisban **oktatás és általános pénzügyi tervezés**; a szövegek átírása; később **függő ügynöki** státusz egy engedélyes szolgáltató mellett vagy saját engedély. |
 | **Kriptoeszköz-tanácsadás** (MiCA – EU 2023/1114) | A trade-napló jelentős része kripto (SUI, SOL, TAO, ETH, BTC…). A kriptoeszközökkel kapcsolatos tanácsadás MiCA szerint engedélyköteles szolgáltatás. | Kriptóval kapcsolatban kizárólag oktatási, nem személyre szabott tartalom. |
-| **Befektetési ajánlások közzététele** (MAR – EU 596/2014) | A nyilvános „szignálok” befektetési ajánlásnak minősülhetnek, ami közzétételi és összeférhetetlenségi szabályokkal jár (pl. saját pozíció feltüntetése). | Minden posztnál: saját pozíció jelzése, időpont, kockázati figyelmeztetés; az MNB finfluencerekre vonatkozó elvárásainak követése. |
+| **Befektetési ajánlások közzététele** (MAR – EU 596/2014) | A nyilvános „jelzések” (trade-ötletek) befektetési ajánlásnak minősülhetnek, ami közzétételi és összeférhetetlenségi szabályokkal jár (pl. saját pozíció feltüntetése). | Minden posztnál: saját pozíció jelzése, időpont, kockázati figyelmeztetés; az MNB finfluencerekre vonatkozó elvárásainak követése. |
 | **Fogyasztóvédelem – megtévesztő gyakorlat** (Fttv. – 2008. évi XLVII. tv.) | A weboldalon **kitalált ügyfélvélemények** szerepelnek (az egyik a „Marcus” nevet említi – ez nyilvánvalóan sablonszöveg). Nem létező vélemény közzététele tisztességtelen kereskedelmi gyakorlat. | **Azonnal eltávolítani**; csak valódi, írásos hozzájárulással gyűjtött véleményt használni. |
 | **Eredménykommunikáció** | A „LIVE” felirat, a kódba égetett „130 lezárt trade / 56%” és a trade-enkénti átlaghozam félrevezető lehet (lásd 8. fejezet). | Pontos, auditálható számok; módszertani magyarázat; portfólió-szintű hozam közlése. |
 | **GDPR** | Ügyféladatok, pénzügyi helyzetre vonatkozó információk kezelése. | Adatkezelési tájékoztató, adatfeldolgozói szerződések, minimális adatgyűjtés. |
@@ -355,12 +356,12 @@ A kód áttekintése alapján a következőket javaslom **a publikálás előtt*
 |---|---|---|
 | 1–2 | Jogi konzultáció; szövegek átírása oktatási fókuszra; kitalált vélemények törlése | Jogilag biztonságos weboldal |
 | 2–3 | Trade-statisztika javítása, ÁSZF/adatkezelés, foglalási ütközés javítása | Publikálható oldal |
-| 3–4 | Egyéni vállalkozás bejegyzése, Stripe/Barion + számlázó, weboldal publikálása | Fizetőképes működés |
+| 3–4 | Egyéni vállalkozás bejegyzése, weboldal publikálása (online fizetés később) | Működő, publikus oldal |
 | 5–8 | Heti 3 rövid videó, heti hírlevél, kvíz → e-mail lead-gyűjtés | 150+ e-mail-cím |
 | 6–10 | Első 5–8 fizetős mentorált; véleményük gyűjtése | Valódi referenciák |
-| 9–12 | Közösség előkészítése (Discord), alapító tagi ár (pl. 6 900 Ft/hó az első 30 főnek) | Induló közösség januárra |
+| 5–12 | Közösség indítása (Discord) alapító tagoknak: első hónap ingyenes, utána 2 990 Ft/hó – várólista nélkül | Aktív induló közösség |
 
-**Siker mérése 90 nap után:** ≥ 3 000 látogató/hó, ≥ 150 lead, ≥ 6 fizető ügyfél, ≥ 20 előregisztrált közösségi tag.
+**Siker mérése 90 nap után:** ≥ 3 000 látogató/hó, ≥ 150 lead, ≥ 6 fizető ügyfél, ≥ 20 aktív alapító tag a közösségben.
 
 ---
 

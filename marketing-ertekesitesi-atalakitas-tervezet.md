@@ -11,7 +11,7 @@
 
 | | Most | Cél |
 |---|---|---|
-| **Kinek szól?** | Egyszerre szól szignálvadásznak („A piac nem vár… te mikor lépsz?”) és óvatos kezdőnek („Nem gyors meggazdagodást ígérek”) | Egy fő célcsoport: **a bizonytalan, 20–35 éves megtakarító**, valamint a „csalódott kezdő trader” |
+| **Kinek szól?** | Egyszerre szól a gyors jelzéseket keresőknek („A piac nem vár… te mikor lépsz?”) és óvatos kezdőnek („Nem gyors meggazdagodást ígérek”) | Egy fő célcsoport: **a bizonytalan, 20–35 éves megtakarító**, valamint a „csalódott kezdő trader” |
 | **Mit árulunk?** | Négy szolgáltatás **ár nélkül**; a „Csatlakozom” gomb egy ingyenes konzultációra visz | Átlátható **csomagok árakkal**, egyértelmű következő lépéssel |
 | **Miért higgyenek nekünk?** | Trade-napló, de pontatlan összesítő számokkal; **kitalált vélemények** | Ellenőrizhető napló, módszertan, valódi történet, később valódi vélemények |
 | **Mi a következő lépés?** | Sok, eltérő feliratú gomb („Csatlakozom”, „Belépek most”, „Időpontfoglalás”, „Cselekedj még ma!”) | **Egy fő CTA** mindenhol: „Ingyenes konzultáció foglalása”, mellette **egy** másodlagos: „Ingyenes önteszt” (lead) |
@@ -31,7 +31,7 @@
 |---|---|---|
 | Főcím | „A piac nem vár.” | **„Befektetés rendszerrel – nem megérzésből.”** |
 | Alcím | „A kérdés csak az: te mikor lépsz?” | **„Független, jutalékmentes mentorálás, hogy a megtakarításod ne az inflációt finanszírozza.”** |
-| USP-sor | „Szignálok, amelyek mögött adat van – nem megérzés.” | **„Minden trade-emet nyilvánosan vezetem – a veszteségeseket is.”** (A „szignál” szót kivenném: szabályozási kockázat, és a csalókkal is összemossa a márkát.) |
+| USP-sor | „Szignálok, amelyek mögött adat van – nem megérzés.” | **„Minden trade-emet nyilvánosan vezetem – a veszteségeseket is.”** (A „szignál” szó helyett, ahol a szövegbe illik, „jelzés” áll; ahol nem illik, kimarad.) |
 | Elsődleges gomb | „Csatlakozom →” (a foglalásra visz) | **„Ingyenes 30 perces konzultáció →”** |
 | Másodlagos gomb | „Megnézem az eredményeket” | **„Hol tartok most? – 2 perces önteszt”** (lead-gyűjtő) |
 | Bizalmi sáv (új) | – | Kis ikonsor a gombok alatt: ✓ Független · ✓ Nem árulok pénzügyi terméket · ✓ Havonta max. 5 új ügyfél |
@@ -94,7 +94,7 @@ Adatbázis: új `leads` tábla a Supabase-ben (név, e-mail, forrás, kvízpont,
 2. Mi történik az ingyenes konzultáción? Kell-e utána bármit vásárolnom?
 3. Megmondod, mibe fektessek? → őszinte válasz: oktatás és rendszer, nem konkrét termékajánlás
 4. Kezdőként is érdemes? Mennyi pénz kell hozzá?
-5. Miben különbözöl egy banki tanácsadótól vagy egy szignálcsoporttól?
+5. Miben különbözöl egy banki tanácsadótól vagy egy tőzsdei jelzéseket árusító csoporttól?
 
 ### 2.5 Forgalomterelés és mérés (az oldal technikai oldala)
 - **Mérés:** a Lovable beépített analitikája + UTM-paraméterek minden közösségimédia-linken; később Meta/Google pixel **sütihozzájárulással** (ehhez cookie-banner kell, ami most nincs).
@@ -107,15 +107,15 @@ Adatbázis: új `leads` tábla a Supabase-ben (név, e-mail, forrás, kvízpont,
 
 ### 3.1 Új szekció és oldal: „Csomagok” (`/csomagok`, és röviden a főoldalon)
 
-*(Az árak az üzleti terv javaslatai – módosíthatók.)*
+*(Kezdő projekthez igazított, alacsony belépési árak – 2026. október 3-án frissítve. Online fizetés egyelőre nincs; a csomagok foglalása a konzultáción vagy e-mailben történik.)*
 
 | Kártya | Ár | Fő elemek | Gomb |
 |---|---|---|---|
 | **Ingyenes konzultáció** | 0 Ft | 30 perc · online · kötelezettség nélkül | Időpontot foglalok |
-| **Stratégiai óra** | 19 900 Ft | 60 perc · egy konkrét kérdés (TBSZ, ETF, vésztartalék) · írásos összefoglaló | Megveszem |
-| **„Alapoktól a rendszerig”** – *Legnépszerűbb* jelvénnyel | 59 900 Ft | 4 × 60 perc 1:1 · személyre szabott tanulási terv · 30 nap e-mailes támogatás · **elégedettségi garancia az 1. alkalom után** | Ezt választom |
-| **Portfólió-átvilágítás** | 34 900 Ft | Költség-, diverzifikációs és kockázati elemzés · írásban · oktatási jelleggel | Megveszem |
-| **Elemzői közösség** – *Hamarosan* jelvénnyel | 9 900 Ft/hó | Heti összefoglaló · élő trade-napló · havi élő Q&A | **Várólistára iratkozom** (alapító tagi ár) |
+| **Stratégiai óra** | 7 900 Ft | 60 perc · egy konkrét kérdés (TBSZ, ETF, vésztartalék) · írásos összefoglaló | Érdekel → konzultáció |
+| **„Alapoktól a rendszerig”** – *Legnépszerűbb* jelvénnyel | 24 900 Ft | 4 × 60 perc 1:1 · személyre szabott tanulási terv · 30 nap e-mailes támogatás · **elégedettségi garancia az 1. alkalom után** | Ezt választom |
+| **Portfólió-átvilágítás** | 12 900 Ft | Költség-, diverzifikációs és kockázati elemzés · írásban · oktatási jelleggel | Érdekel → konzultáció |
+| **Elemzői közösség** – *Alapító tagság* jelvénnyel | **az első hónap ingyenes**, utána 2 990 Ft/hó (alapító tagi ár, amíg tag maradsz; később 4 990 Ft/hó) | Heti összefoglaló · élő trade-napló · havi élő Q&A | **Csatlakozom alapító tagként** |
 
 A kártyák alatt: valós szűkösség („Havonta max. 5 új 1:1 ügyfél”), kockázati figyelmeztetés, és egy link: „Nem tudod, melyik kell? → Ingyenes konzultáció”.
 
@@ -126,7 +126,7 @@ A kártyák alatt: valós szűkösség („Havonta max. 5 új 1:1 ügyfél”), 
 4. **Köszönőoldal** a foglalás után, következő lépéssel: „Amíg vársz: töltsd ki az öntesztet / nézd meg a naplót”.
 5. Az oldal felső részén egy sor: **„Mi történik a hívás után?”** – nincs kötelező vásárlás; ha tudok segíteni, írásban küldök ajánlatot.
 
-### 3.3 Online fizetés és rendelés (a `submit-order` már megvan)
+### 3.3 Online fizetés és rendelés – ⏸ KÉSŐBB (a tulajdonos döntése szerint, az oldal publikálása után)
 - **Stripe** vagy **Barion** fizetés a csomagkártyákról (Barion a magyar piacon ismertebb, Stripe könnyebb előfizetésre).
 - Pénznem **USD → HUF** (a rendelési funkció alapértelmezése most USD).
 - **Automatikus számla** (Számlázz.hu / Billingo integráció), rendelés-visszaigazoló e-mail (a sablon kész).
@@ -153,7 +153,7 @@ A kártyák alatt: valós szűkösség („Havonta max. 5 új 1:1 ügyfél”), 
 | Lead → konzultáció | foglalások / leadek | ≥ 5% |
 | Konzultáció → vásárlás | fizetős csomag / megtartott konzultáció | ≥ 25% |
 | Hírlevél | megnyitás / kattintás | ≥ 40% / ≥ 5% |
-| Várólista | közösségi előregisztráció | ≥ 20 fő |
+| Alapító tagok | csatlakozott közösségi tagok | ≥ 20 fő |
 
 ---
 
@@ -161,11 +161,11 @@ A kártyák alatt: valós szűkösség („Havonta max. 5 új 1:1 ügyfél”), 
 
 | Fázis | Tartalom | Miért ez a sorrend |
 |---|---|---|
-| **1. Tisztítás** | Kitalált vélemények és hamis sürgetés ki, trade-statisztika javítása, „szignál” szöveg ki, LinkedIn/e-mail javítása | Jogi és bizalmi kockázat – ezt kell elsőként rendezni |
+| **1. Tisztítás** | Kitalált vélemények és hamis sürgetés ki, trade-statisztika javítása, „szignál” → „jelzés” (vagy törlés), LinkedIn/e-mail javítása | Jogi és bizalmi kockázat – ezt kell elsőként rendezni |
 | **2. Pozicionálás** | Hero új szövege, egységes CTA, navigáció | Kis munka, nagy hatás |
 | **3. Lead-gyűjtés** | `leads` tábla, önteszt/kalkulátor e-mail-gyűjtés, hírlevél-feliratkozás | Ettől kezd épülni a lista |
-| **4. Ajánlat** | `/csomagok` oldal és főoldali szekció, közösségi várólista | Árazás az oldalon |
-| **5. Értékesítési folyamat** | Foglalási javítások, emlékeztetők, fizetés, számlázás | A Stripe/Barion és a számlázó fiók előfeltétel |
+| **4. Ajánlat** | `/csomagok` oldal és főoldali szekció, alapító tagság a közösséghez | Árazás az oldalon |
+| **5. Értékesítési folyamat** | Foglalási javítások, emlékeztetők (a fizetés és a számlázás később) | A fizetésről a tulajdonos később dönt |
 | **6. Főoldal-átrendezés** | Új szekciósorrend, mini-GYIK, `/eredmenyek` oldal | Ha a részek megvannak, összerakjuk |
 
 ---
@@ -186,14 +186,14 @@ A kártyák alatt: valós szűkösség („Havonta max. 5 új 1:1 ügyfél”), 
 > **Result:** Egységes üzenet és egy fő CTA az egész oldalon, a jelenlegi dark terminal arculat megtartásával.
 > **Example:** Lásd a tervezet 1.2-es táblázatát.
 
-**3–6. fázis** – a fenti minta szerint, a tervezet 2.2, 3.1–3.4 és 2.1 pontjai alapján. A jóváhagyott 1–2. fázis után írom meg őket véglegesre, hogy a közben hozott döntéseidet (árak, fizetési szolgáltató) beépíthessem.
+**3–6. fázis** – a fenti minta szerint, a tervezet 2.2, 3.1–3.4 és 2.1 pontjai alapján. A jóváhagyott 1–2. fázis után írom meg őket véglegesre, hogy a közben hozott döntéseidet (árak, közösségi platform) beépíthessem.
 
 ---
 
 ## 7. Döntések, amelyek tőled kellenek
 
-1. **Árak:** maradjanak a javasolt összegek, vagy mások?
-2. **Fizetés:** Stripe vagy Barion? Van már számlázó fiókod?
-3. **Közösség:** induljon várólistával januárra, vagy most még ne legyen az oldalon?
-4. **„Szignál” szó:** kivehető teljesen, vagy ragaszkodsz hozzá?
-5. **Sorrend:** mehet az 1–2. fázis a fenti utasításokkal?
+1. ~~Árak~~ – döntés: **alacsonyabb, kezdő projekthez illő árak** (3.1).
+2. ~~Fizetés~~ – később (a tulajdonos jelez).
+3. ~~Közösség várólistával~~ – döntés: **nincs várólista**, alapító tagokat toborzunk most.
+4. ~~„Szignál” szó~~ – döntés: **„jelzés”**, vagy törlés, ahol nem illik.
+5. ~~Sorrend~~ – döntés: az 1–2. fázis elindítva (2026. október 3.).
