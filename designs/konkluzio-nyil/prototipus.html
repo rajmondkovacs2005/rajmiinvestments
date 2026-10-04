@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Konklúzió-nyíl prototípus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Playfair+Display:wght@800&display=swap" rel="stylesheet" />
+<style>
+  /* A Lovable-projekt term-* tokenjei (index.css) közelítő értékekkel */
+  :root {
+    --term-bg-base: #080d14;
+    --term-bg-surface: #0f1724;
+    --term-border: rgba(148, 163, 184, 0.16);
+    --term-text-primary: #f1f5f9;
+    --term-text-muted: #94a3b8;
+    --term-accent-red: #f87171;
+    --term-accent-blue: #38bdf8;
+    --term-accent-green: #4ade80;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+    --serif: "Playfair Display", Georgia, serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--term-bg-base);
+    color: var(--term-text-primary);
+    font-family: var(--mono);
+    padding: 48px 16px;
+  }
+  .wrap { max-width: 1000px; margin: 0 auto; }
+  .note {
+    font-size: 12px; color: var(--term-text-muted); text-align: center;
+    margin: 0 0 20px; letter-spacing: .04em;
+  }
+  .replay {
+    display: block; margin: 0 auto 28px; background: transparent;
+    color: var(--term-accent-blue); border: 1px solid rgba(56,189,248,.4);
+    border-radius: 6px; padding: 8px 16px; font: 600 12px var(--mono);
+    letter-spacing: .08em; text-transform: uppercase; cursor: pointer;
+  }
+
+  /* ---------- PANEL ---------- */
+  .panel {
+    background: var(--term-bg-surface);
+    border: 1px solid var(--term-border);
+    border-top: 2px solid var(--term-accent-red);
+    border-radius: 4px;
+    padding: 28px clamp(16px, 4vw, 40px) 36px;
+    text-align: center;
+  }
+
+  /* 1) recap sor – változatlan 3 oszlop, mobilon is */
+  .recap { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .stat { padding: 0 6px; opacity: 0; transform: translateY(8px); animation: rise .4s cubic-bezier(.22,1,.36,1) forwards; }
+  .stat:nth-child(1) { animation-delay: .1s; }
+  .stat:nth-child(2) { animation-delay: .25s; border-left: 1px solid var(--term-border); border-right: 1px solid var(--term-border); }
+  .stat:nth-child(3) { animation-delay: .4s; }
+  .num {
+    font-weight: 700; line-height: 1; color: var(--term-accent-red);
+    font-size: clamp(24px, 3.4vw, 36px);
+    animation: numglow .6s ease-out forwards;
+  }
+  .stat:nth-child(1) .num { animation-delay: .9s; }
+  .stat:nth-child(2) .num { animation-delay: 1.02s; }
+  .stat:nth-child(3) .num { animation-delay: 1.14s; }
+  .lbl {
+    margin-top: 8px; font-size: clamp(9px, 1.1vw, 11px); letter-spacing: .16em;
+    text-transform: uppercase; color: rgba(255,255,255,.55);
+  }
+
+  /* 2) ÖSSZEFUTÓ NYÍL – három ág egy törzsbe */
+  .funnel { position: relative; height: clamp(64px, 9vw, 96px); margin-top: 14px; }
+  .funnel svg.branches { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+  .branch {
+    fill: none; stroke: var(--term-accent-red); stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-dasharray: 1; stroke-dashoffset: 1;
+    animation: draw .5s ease-out forwards;
+  }
+  .branch.side { stroke-opacity: .55; }
+  .b1 { animation-delay: .9s; }
+  .b2 { animation-delay: 1.02s; }
+  .b3 { animation-delay: 1.14s; }
+  .trunk { stroke-width: 2; stroke-opacity: 1; animation-delay: 1.6s; animation-duration: .3s; }
+  /* fénypont, ami egyszer végigfut a törzsön */
+  .spark {
+    position: absolute; left: 50%; top: 66%; width: 6px; height: 6px; margin-left: -3px;
+    border-radius: 50%; background: #fff; box-shadow: 0 0 10px 3px rgba(248,113,113,.9);
+    opacity: 0; animation: spark .35s ease-in 1.6s forwards;
+  }
+  .head {
+    display: block; margin: -2px auto 0; width: 22px; height: 14px;
+    opacity: 0; transform: translateY(-6px);
+    animation: land .25s ease-out 1.9s forwards;
+    filter: drop-shadow(0 0 6px rgba(248,113,113,.75));
+  }
+
+  /* 3) konklúzió – a nyíl erre a mondatra érkezik */
+  .verdict {
+    font-family: var(--serif); font-weight: 800; line-height: 1.12;
+    font-size: clamp(26px, 4vw, 44px); margin: 10px 0 0;
+    opacity: 0; transform: translateY(8px);
+    animation: rise .45s cubic-bezier(.22,1,.36,1) 2.0s forwards;
+  }
+  .verdict .u {
+    background-image: linear-gradient(90deg, transparent, var(--term-accent-red), transparent);
+    background-size: 0% 2px; background-repeat: no-repeat; background-position: 50% 100%;
+    padding-bottom: 4px;
+    animation: underline .5s ease-out 2.35s forwards;
+  }
+  .choice {
+    font-family: var(--serif); font-weight: 800; line-height: 1.12;
+    font-size: clamp(26px, 4vw, 44px); margin: 6px 0 0;
+    background: linear-gradient(90deg, #4ade80, #38bdf8);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    opacity: 0; transform: translateY(8px);
+    animation: rise .45s cubic-bezier(.22,1,.36,1) 2.8s forwards;
+  }
+  .cta {
+    display: inline-flex; align-items: center; gap: 8px; margin-top: 28px;
+    background: var(--term-accent-blue); color: #080d14; text-decoration: none;
+    font: 700 14px var(--mono); letter-spacing: .04em; text-transform: uppercase;
+    border-radius: 6px; padding: 15px 28px;
+    opacity: 0; animation: fade .4s ease-out 3.3s forwards;
+  }
+
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  @keyframes fade { to { opacity: 1; } }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @keyframes numglow { 0% { text-shadow: 0 0 0 rgba(248,113,113,0); } 40% { text-shadow: 0 0 18px rgba(248,113,113,.8); } 100% { text-shadow: 0 0 0 rgba(248,113,113,0); } }
+  @keyframes spark { 0% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(26px); } }
+  @keyframes land { to { opacity: 1; transform: none; } }
+  @keyframes underline { to { background-size: 60% 2px; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0s !important; animation-delay: 0s !important; }
+    .spark { display: none; }
+  }
+  /* statikus képernyőképhez: ?static */
+  body.static *, body.static *::before, body.static *::after { animation-duration: 0s !important; animation-delay: 0s !important; }
+  body.static .spark { display: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="note">PROTOTÍPUS · ShockDataSection konklúzió-panel · a három adat egy nyílban fut össze</p>
+  <button class="replay" onclick="replay()">↻ Animáció újrajátszása</button>
+
+  <div class="panel" id="panel">
+    <div class="recap">
+      <div class="stat"><div class="num">90%</div><div class="lbl">elveszít</div></div>
+      <div class="stat"><div class="num">6,5%</div><div class="lbl">alulteljesít</div></div>
+      <div class="stat"><div class="num">70%</div><div class="lbl">tőkeáttét likvidáció</div></div>
+    </div>
+
+    <!-- Az ágakat JS számolja a panel VALÓS pixelméretéből (nincs torzítás):
+         oszlopközepek = szélesség 1/6, 3/6, 5/6 -->
+    <div class="funnel" aria-hidden="true">
+      <svg class="branches" id="branches">
+        <path class="branch side b1" pathLength="1" />
+        <path class="branch b2"      pathLength="1" />
+        <path class="branch side b3" pathLength="1" />
+        <path class="branch trunk"   pathLength="1" />
+      </svg>
+      <span class="spark"></span>
+    </div>
+    <svg class="head" viewBox="0 0 22 14" aria-hidden="true">
+      <polyline points="2,2 11,12 20,2" fill="none" stroke="#f87171" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+
+    <p class="verdict"><span class="u">A többség veszít.</span></p>
+    <p class="choice">Te dönthetsz másképp.</p>
+    <a class="cta" href="#">Ingyenes konzultáció <span aria-hidden="true">→</span></a>
+  </div>
+</div>
+<script>
+  if (location.search.includes("static")) document.body.classList.add("static");
+  // Ágak geometriája a valós méretből: függőleges szár → lágy ív → közös pont → törzs
+  function layout() {
+    const svg = document.getElementById("branches");
+    const box = svg.getBoundingClientRect();
+    const W = box.width, H = box.height, cx = W / 2, mY = H * 0.7;
+    svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+    const side = (x) => `M${x} 0 V${H * 0.2} C${x} ${H * 0.58} ${cx} ${H * 0.42} ${cx} ${mY}`;
+    const [b1, b2, b3, t] = svg.querySelectorAll("path");
+    b1.setAttribute("d", side(W / 6));
+    b2.setAttribute("d", `M${cx} 0 V${mY}`);
+    b3.setAttribute("d", side(W * 5 / 6));
+    t.setAttribute("d", `M${cx} ${mY} V${H}`);
+  }
+  layout();
+  addEventListener("resize", layout);
+  function replay() {
+    const p = document.getElementById("panel");
+    const clone = p.cloneNode(true);
+    p.replaceWith(clone);
+    layout();
+  }
+</script>
+</body>
+</html>
