@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hero prototípus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --term-bg-base: #080d14; --term-bg-surface: #0d1520;
+    --term-border-subtle: rgba(255,255,255,0.06); --term-border-accent: rgba(56,189,248,0.25);
+    --blue: #38bdf8; --green: #4ade80; --muted: rgba(255,255,255,0.66);
+    --mono: "JetBrains Mono", ui-monospace, monospace; --sans: "Inter", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: radial-gradient(900px circle at 20% 30%, rgba(56,189,248,.10), transparent 60%),
+         radial-gradient(800px circle at 80% 70%, rgba(74,222,128,.07), transparent 60%), var(--term-bg-base); color: #fff; font-family: var(--sans); }
+  .hero { max-width: 1152px; margin: 0 auto; padding: 0 24px; min-height: 100vh; display: flex; align-items: center; gap: 72px; }
+  .left { flex: 1 1 60%; min-width: 0; }
+  @media (min-width: 1024px) { h1 span { white-space: nowrap; } }
+  .right { flex: 0 0 36%; }
+
+  h1 { font: 800 clamp(34px, 3.9vw, 54px)/1.08 var(--sans); letter-spacing: -0.03em; margin: 0; }
+  h1 span { display: block; opacity: 0; transform: translateY(14px); animation: rise .6s cubic-bezier(.22,1,.36,1) forwards; }
+  h1 span:nth-child(1) { animation-delay: .1s; }
+  h1 span:nth-child(2) { animation-delay: .25s; background: linear-gradient(90deg, #38bdf8, #4ade80); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .sub { font: 400 clamp(17px, 1.5vw, 20px)/1.6 var(--sans); color: var(--muted); max-width: 34ch; margin: 28px 0 0;
+         opacity: 0; animation: fade .6s ease-out .45s forwards; }
+  .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; margin-top: 44px; opacity: 0; animation: rise .6s cubic-bezier(.22,1,.36,1) .6s forwards; transform: translateY(10px); }
+  .btn { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: #080d14; font: 700 16px var(--mono);
+         background: linear-gradient(90deg, #38bdf8, #4ade80); border-radius: 6px; padding: 18px 34px; transition: box-shadow .2s, transform .2s; }
+  .btn:hover { box-shadow: 0 0 28px rgba(56,189,248,.35); transform: translateY(-1px); }
+  .link { font: 500 15px var(--mono); color: var(--blue); text-decoration: none; border-bottom: 1px solid rgba(56,189,248,.35); padding-bottom: 2px; }
+  .link:hover { border-bottom-color: var(--blue); }
+
+  /* eredménydoboz – változatlan */
+  .box { background: var(--term-bg-surface); border: 1px solid var(--term-border-accent); border-radius: 12px; overflow: hidden;
+         box-shadow: 0 32px 80px rgba(0,0,0,.6), 0 0 48px rgba(56,189,248,.10); }
+  .box h3 { margin: 0; display: flex; align-items: center; gap: 12px; font: 700 20px var(--mono); background: #000; padding: 16px 24px; border-bottom: 1px solid var(--term-border-subtle); }
+  .box h3 small { margin-left: auto; font: 400 10px var(--mono); color: var(--muted); text-align: right; }
+  .stat { text-align: center; padding: 24px; border-bottom: 1px solid var(--term-border-subtle); }
+  .stat b { display: block; font: 600 32px var(--mono); color: var(--green); }
+  .stat span { font: 400 11px var(--sans); letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+  .box a { display: block; padding: 12px 16px; font: 400 11px var(--mono); letter-spacing: 1.5px; color: var(--blue); text-decoration: none; }
+
+  @media (max-width: 1023px) {
+    .hero { flex-direction: column; align-items: stretch; gap: 56px; padding: 120px 16px 72px; min-height: 0; }
+    .right { flex: none; }
+    .btn { width: 100%; justify-content: center; text-align: center; font-size: 15px; padding: 18px 20px; }
+  }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  @keyframes fade { to { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { * { animation-duration: 0s !important; animation-delay: 0s !important; } }
+  body.static * { animation-duration: 0s !important; animation-delay: 0s !important; }
+</style>
+</head>
+<body>
+  <section class="hero">
+    <div class="left">
+      <h1><span>Befektetés rendszerrel,</span><span>nem megérzésből.</span></h1>
+      <p class="sub">Független mentorálás kezdőknek, nyilvános trade-naplóval – a veszteségekkel együtt.</p>
+      <div class="cta-row">
+        <a class="btn" href="#">Ingyenes 30 perces konzultáció <span aria-hidden="true">→</span></a>
+        <a class="link" href="#">vagy töltsd ki a 2 perces öntesztet</a>
+      </div>
+    </div>
+    <aside class="right">
+      <div class="box">
+        <h3>Eredmények összegzése <small>Trade-napló ·<br>frissítve: 2026.07.24</small></h3>
+        <div class="stat"><b>101</b><span>lezárt trade</span></div>
+        <div class="stat"><b>55%</b><span>nyerési arány</span></div>
+        <div class="stat"><b>+3,40%</b><span>átlag hozam / trade</span></div>
+        <a href="#">TOP TRADE-EK MEGTEKINTÉSE →</a>
+      </div>
+    </aside>
+  </section>
+<script>if (location.search.includes("static")) document.body.classList.add("static");</script>
+</body>
+</html>
