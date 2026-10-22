@@ -14,6 +14,43 @@
 6. A **`[[…]]`** jelölésű részeket **küldés előtt írd át** a saját valós adataidra. Ha egy adatod nincs meg, ne küldd el azt a promptot, szólj, és megoldjuk.
 7. **Tartsd a sorrendet.** Több prompt ugyanazt a fájlt módosítja, és a későbbiek építenek a korábbiakra.
 
+### Melyik prompt melyik oldalt módosítja?
+
+A Lovable-ben **minden promptot ugyanoda illesztesz be: a bal oldali chat mezőbe.** Nincs oldalankénti külön beillesztési hely, a prompt maga írja meg a Lovable-nek, melyik fájlt módosítsa. Érdemes viszont küldés előtt az előnézetben **arra az oldalra navigálni**, amelyiket a prompt módosítja (az előnézet feletti címsorban, pl. `/booking`). Így a változást utána azonnal látod.
+
+| Prompt | Melyik oldal | Melyik rész | Előnézet címe |
+|---|---|---|---|
+| A1 | **Minden oldal** | Lábléc → „Kapcsolat” oszlop (e-mail, LinkedIn) | `/` (bármelyik oldal alja) |
+| A2 | **Főoldal** | A hero jobb oldali „Eredmények összegzése” doboza | `/` |
+| A3 | **Új oldal: Eredmények** + menü és lábléc | Teljes trade-napló; új „Eredmények” menüpont | `/eredmenyek` |
+| A4 | **Főoldal** | A hero alatti trade-kártyák (most „Valós eredmények”) és a piros „Figyelmeztetés” sáv | `/` |
+| A5 | **Főoldal** | Kikerül: „Aggódsz…?”, „Mielőtt tovább görgetsz”, kalkulátor | `/` |
+| A6 | **Főoldal** + **Foglalás** | Önteszt („Hol tartasz most?”) eredménye; a foglalási űrlap üzenetmezője | `/`, majd `/booking` |
+| A7 | **Új oldal: Impresszum** + lábléc | Impresszum; jogi linkek a lábléc legalján | `/impresszum` |
+| A8 | **Új oldal: Adatkezelési tájékoztató** | – | `/adatkezeles` |
+| A9 | **Új oldal: ÁSZF** | – | `/aszf` |
+| A10 | **Foglalás** | Naptár, időpontok, jelölőnégyzet a gomb felett (+ háttér: adatbázis) | `/booking` |
+| A11 | **Segítség** | Gyakori kérdések válaszai, „Probléma bejelentése” rész | `/segitseg` |
+| A12 | **Rólam** | Fotó melletti üres részek, „Az utam” alcíme, statisztikasáv | `/about` |
+| A13 | **Minden oldal** | Piros „1” jelzés a jobb alsó chat ikonon | `/` |
+| B1 | **Főoldal** | Új rész közvetlenül a hero (főcím) alatt | `/` |
+| B2 | **Főoldal** + **Folyamat** | Új rész az infláció és az önteszt között; a Folyamat oldalon a 3. lépés neve | `/`, majd `/process` |
+| B3 | **Főoldal** | Új rész a legvégén, a lábléc előtt | `/` |
+| C1 | **Foglalás** | Az egész oldal színei, betűi | `/booking` |
+| C2 | **GYIK** | Az egész oldal színei, betűi | `/faq` |
+| C3 | **Főoldal** + **Rólam** | Főoldal: „Beszéljünk a pénzügyi céljaidról” doboz és az inflációs gomb; Rólam: „Az utam” kártyái | `/`, majd `/about` |
+| C4 | **Főoldal** | Inflációs blokk („Befektetés nélkül a pénzed nem pihen.”) | `/` |
+
+Oldalanként csoportosítva:
+- **Főoldal (`/`):** A2, A4, A5, A6, B1, B2, B3, C3, C4
+- **Rólam (`/about`):** A12, C3
+- **Folyamat (`/process`):** B2 (csak a 3. lépés neve)
+- **Foglalás (`/booking`):** A6 (előkitöltés), A10, C1
+- **GYIK (`/faq`):** C2
+- **Segítség (`/segitseg`):** A11
+- **Új oldalak:** A3 (`/eredmenyek`), A7 (`/impresszum`), A8 (`/adatkezeles`), A9 (`/aszf`)
+- **Minden oldal (lábléc, menü, chat ikon):** A1, A3, A7, A13
+
 | Jel | Jelentés |
 |---|---|
 | 🔴 **A** | Publikálás előtt kötelező (P0) |
