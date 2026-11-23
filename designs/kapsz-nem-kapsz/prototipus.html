@@ -27,7 +27,9 @@
   .labels { margin: 48px 0 16px; }
   .labels span { font: 700 12px var(--mono); letter-spacing: .2em; text-transform: uppercase; display: inline-flex; gap: 8px; align-items: center; }
   .labels .l { color: var(--red); } .labels .r { color: var(--green); }
-  .rows { display: grid; gap: 18px; }
+  .rows { display: grid; gap: 26px; }
+  .axis { grid-column: 1 / -1; font: 700 11px var(--mono); letter-spacing: .22em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; display: flex; align-items: center; gap: 12px; }
+  .axis::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(56,189,248,.35), transparent); }
 
   .card { border-radius: 12px; padding: 22px 24px; position: relative; transition: transform .25s, box-shadow .5s, opacity .5s, filter .5s, border-color .5s; }
   .card h3 { margin: 0; font: 700 14px/1.5 var(--mono); letter-spacing: .12em; text-transform: uppercase; display: flex; align-items: flex-start; gap: 10px; }
@@ -93,15 +95,16 @@
 
 <script>
 const pairs = [
-  [["Gyors meggazdagodás","Nincsenek garantált hozamok vagy „biztos tippek”."],["Kockázatkezelés","A cél nem csak a hozam, hanem a tőke védelme is."]],
-  [["Hype alapú döntések","Nem követek vakon trendeket vagy felkapott befektetéseket."],["Adatokra épülő befektetések","Nem impulzusokra vagy trendekre építek, hanem átgondolt, strukturált döntésekre."]],
-  [["Érzelmi alapú kereskedés","Nem kapzsiság vagy félelem irányítja a döntéseket."],["Fegyelmezett megközelítés","A befektetés számomra nem érzelmi játék, hanem következetes rendszer."]],
-  [["Szerencsejáték szemlélet","A befektetés nem kaszinó — és nem is kezelem annak."],["Hosszú távú gondolkodás","Nem rövid távú spekuláció, hanem fenntartható építkezés."]],
+  ["01 · Kockázat",["Szerencsejáték-szemlélet","Nincs „mindent egy lapra” – a befektetés nem kaszinó."],["Tudatos kockázatkezelés","Előre eldöntöd, mennyit kockáztatsz egy ügyleten, és hol lépsz ki, ha rosszul alakul."]],
+  ["02 · Döntés",["Hype-alapú döntések","Nincsenek felkapott trendek és „most mindenki ezt veszi” tippek."],["Adatokra épülő döntések","Előre rögzített szempontok és ellenőrizhető adatok alapján döntesz."]],
+  ["03 · Viselkedés",["Érzelmi alapú kereskedés","Nincs kapkodás: nem a kapzsiság vagy a félelem dönt."],["Fegyelmezett rendszer","Írásban rögzített szabályokat követsz – akkor is, amikor a piac ideges."]],
+  ["04 · Időtáv",["Gyors meggazdagodás","Nincsenek garantált hozamok és „biztos tippek”."],["Hosszú távú építkezés","A cél nemcsak a hozam, hanem a tőkéd védelme is – lépésről lépésre."]],
 ];
 const x = '<svg class="ico x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>';
 const c = '<svg class="ico chk" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>';
-document.getElementById("rows").innerHTML = pairs.map(([n,p]) => `
+document.getElementById("rows").innerHTML = pairs.map(([a,n,p]) => `
   <div class="row">
+    <div class="axis">${a}</div>
     <div class="card neg"><h3>${x}<span><span class="t">${n[0]}</span></span></h3><p>${n[1]}</p></div>
     <div class="bridge" aria-hidden="true"><span class="node">→</span></div>
     <div class="card pos"><h3>${c}<span>${p[0]}</span></h3><p>${p[1]}</p></div>
