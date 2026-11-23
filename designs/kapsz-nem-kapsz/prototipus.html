@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mit kapsz – prototípus</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600;700&family=Playfair+Display:wght@800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #080d14; --surface: #0d1520; --border: rgba(255,255,255,0.06);
+    --text: #fff; --muted: rgba(255,255,255,0.62);
+    --blue: #38bdf8; --green: #4ade80; --red: #f87171;
+    --mono: "JetBrains Mono", ui-monospace, monospace; --serif: "Playfair Display", Georgia, serif; --sans: Inter, system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--sans); padding: 48px 16px 64px; }
+  .panel { max-width: 1080px; margin: 0 auto; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 56px 48px; position: relative; overflow: hidden; }
+  .panel::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 2px; background: linear-gradient(90deg, var(--red), var(--blue), var(--green)); opacity: .7; }
+  .head { text-align: center; }
+  .eyebrow { font: 600 12px var(--mono); letter-spacing: .3em; color: var(--blue); margin: 0; }
+  h2 { font: 800 clamp(30px, 4.4vw, 50px)/1.1 var(--serif); margin: 18px 0 0; }
+  h2 .h-neg { color: var(--muted); text-decoration: line-through; text-decoration-color: rgba(248,113,113,.8); text-decoration-thickness: 3px; }
+  h2 .h-pos { background: linear-gradient(90deg, var(--blue), var(--green)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .sub { font: 400 15px/1.7 var(--mono); color: var(--muted); margin: 16px auto 0; max-width: 52ch; }
+
+  .labels, .row { display: grid; grid-template-columns: minmax(0,1fr) 72px minmax(0,1fr); align-items: stretch; }
+  .labels { margin: 48px 0 16px; }
+  .labels span { font: 700 12px var(--mono); letter-spacing: .2em; text-transform: uppercase; display: inline-flex; gap: 8px; align-items: center; }
+  .labels .l { color: var(--red); } .labels .r { color: var(--green); }
+  .rows { display: grid; gap: 18px; }
+
+  .card { border-radius: 12px; padding: 22px 24px; position: relative; transition: transform .25s, box-shadow .5s, opacity .5s, filter .5s, border-color .5s; }
+  .card h3 { margin: 0; font: 700 14px/1.5 var(--mono); letter-spacing: .12em; text-transform: uppercase; display: flex; align-items: flex-start; gap: 10px; }
+  .card h3 .ico { margin-top: -1px; }
+  .card p { margin: 8px 0 0; font: 400 15px/1.6 var(--sans); }
+  .neg { background: rgba(248,113,113,.04); border: 1px solid rgba(248,113,113,.16); }
+  .neg h3 { color: var(--red); }
+  .neg p { color: var(--muted); }
+  .neg h3 .t { background: linear-gradient(var(--red), var(--red)) no-repeat 0 55% / 0% 2px; -webkit-box-decoration-break: clone; box-decoration-break: clone; transition: background-size .45s cubic-bezier(.22,1,.36,1); }
+  .pos { background: linear-gradient(135deg, rgba(74,222,128,.09), rgba(56,189,248,.04)); border: 1px solid rgba(74,222,128,.22); }
+  .pos h3 { color: var(--green); }
+  .pos p { color: var(--text); opacity: .9; }
+  .pos:hover { transform: translateY(-3px); }
+
+  .ico { width: 22px; height: 22px; flex: none; }
+  .ico path, .ico circle { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .x path { stroke: var(--red); }
+  .chk circle { stroke: rgba(74,222,128,.4); }
+  .chk path { stroke: var(--green); stroke-dasharray: 20; stroke-dashoffset: 20; transition: stroke-dashoffset .4s ease-out .15s; }
+
+  .bridge { position: relative; display: grid; place-items: center; }
+  .bridge::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 2px; background: linear-gradient(90deg, rgba(248,113,113,.7), rgba(74,222,128,.9)); transform: scaleX(0); transform-origin: left; transition: transform .35s ease-out; }
+  .bridge .node { width: 38px; height: 38px; border-radius: 50%; background: var(--bg); border: 1px solid rgba(255,255,255,.14); display: grid; place-items: center; position: relative; z-index: 1; color: var(--muted); font: 700 16px var(--mono); transition: border-color .4s, color .4s, box-shadow .4s; }
+
+  /* aktivált sor */
+  .row.on .neg h3 .t { background-size: 100% 2px; }
+  .row.on .neg { opacity: .55; filter: saturate(.6); }
+  .row.on .bridge::before { transform: scaleX(1); transition-delay: .4s; }
+  .row.on .bridge .node { border-color: var(--green); color: var(--green); box-shadow: 0 0 18px rgba(74,222,128,.35); transition-delay: .6s; }
+  .row.on .pos { border-color: rgba(74,222,128,.5); box-shadow: 0 0 0 1px rgba(74,222,128,.08), 0 14px 40px -18px rgba(74,222,128,.45); transition-delay: .7s; }
+  .row.on .chk path { stroke-dashoffset: 0; transition-delay: .8s; }
+
+  .row { opacity: 0; transform: translateY(14px); transition: opacity .5s, transform .5s; }
+  .row.in { opacity: 1; transform: none; }
+
+  @media (max-width: 767px) {
+    .panel { padding: 40px 20px; }
+    .labels { display: none; }
+    .row { grid-template-columns: 1fr; }
+    .bridge { height: 44px; }
+    .bridge::before { left: 50%; right: auto; top: 0; bottom: 0; width: 2px; height: auto; background: linear-gradient(180deg, rgba(248,113,113,.7), rgba(74,222,128,.9)); transform: scaleY(0); transform-origin: top; }
+    .row.on .bridge::before { transform: scaleY(1); }
+    .bridge .node { transform: rotate(90deg); width: 32px; height: 32px; }
+    .rows { gap: 36px; margin-top: 40px; }
+  }
+  body.static * { transition: none !important; }
+</style>
+</head>
+<body>
+<section class="panel">
+  <div class="head">
+    <p class="eyebrow">// A KÜLÖNBSÉG</p>
+    <h2>Nem <span class="h-neg">ígéretet</span> kapsz.<br><span class="h-pos">Rendszert.</span></h2>
+    <p class="sub">Négy dolog, amit nem kínálok – és ami a helyükre kerül.</p>
+  </div>
+
+  <div class="labels" aria-hidden="true">
+    <span class="l">✕ Amit nem kapsz</span><span></span><span class="r">✓ Amit kapsz</span>
+  </div>
+
+  <div class="rows" id="rows"></div>
+</section>
+
+<script>
+const pairs = [
+  [["Gyors meggazdagodás","Nincsenek garantált hozamok vagy „biztos tippek”."],["Kockázatkezelés","A cél nem csak a hozam, hanem a tőke védelme is."]],
+  [["Hype alapú döntések","Nem követek vakon trendeket vagy felkapott befektetéseket."],["Adatokra épülő befektetések","Nem impulzusokra vagy trendekre építek, hanem átgondolt, strukturált döntésekre."]],
+  [["Érzelmi alapú kereskedés","Nem kapzsiság vagy félelem irányítja a döntéseket."],["Fegyelmezett megközelítés","A befektetés számomra nem érzelmi játék, hanem következetes rendszer."]],
+  [["Szerencsejáték szemlélet","A befektetés nem kaszinó — és nem is kezelem annak."],["Hosszú távú gondolkodás","Nem rövid távú spekuláció, hanem fenntartható építkezés."]],
+];
+const x = '<svg class="ico x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+const c = '<svg class="ico chk" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>';
+document.getElementById("rows").innerHTML = pairs.map(([n,p]) => `
+  <div class="row">
+    <div class="card neg"><h3>${x}<span><span class="t">${n[0]}</span></span></h3><p>${n[1]}</p></div>
+    <div class="bridge" aria-hidden="true"><span class="node">→</span></div>
+    <div class="card pos"><h3>${c}<span>${p[0]}</span></h3><p>${p[1]}</p></div>
+  </div>`).join("");
+const rows = [...document.querySelectorAll(".row")];
+if (location.search.includes("static")) {
+  document.body.classList.add("static"); rows.forEach(r => r.classList.add("in","on"));
+} else {
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    const i = rows.indexOf(e.target);
+    setTimeout(() => { e.target.classList.add("in"); setTimeout(() => e.target.classList.add("on"), 300); }, i * 300);
+    io.unobserve(e.target);
+  }), { threshold: .4 });
+  rows.forEach(r => io.observe(r));
+}
+</script>
+</body>
+</html>
