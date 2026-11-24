@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Az utam – prototípus</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600;700&family=Playfair+Display:ital,wght@0,800;1,700&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg:#080d14; --surface:#0d1520; --border:rgba(255,255,255,.06); --muted:rgba(255,255,255,.62);
+    --blue:#38bdf8; --green:#4ade80; --red:#f87171; --mono:"JetBrains Mono",monospace; --serif:"Playfair Display",serif; --sans:Inter,system-ui,sans-serif; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:#fff; font-family:var(--sans); padding:56px 16px 72px; }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  .head { text-align: center; }
+  h2 { font: 800 clamp(28px,3.6vw,40px)/1.1 var(--serif); margin: 0; }
+  .bar { width: 72px; height: 2px; margin: 16px auto 0; border-radius: 2px; background: linear-gradient(90deg,var(--blue),var(--green)); }
+  .sub { font: italic 400 14px var(--mono); color: var(--muted); margin: 20px 0 0; }
+
+  .chart { position: relative; height: 230px; margin-top: 48px; }
+  .chart svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+  .grid line { stroke: rgba(255,255,255,.05); stroke-dasharray: 2 6; }
+  .area { fill: url(#fillg); opacity: 0; transition: opacity .8s ease .9s; }
+  .line { fill: none; stroke: url(#lineg); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.8s cubic-bezier(.45,0,.2,1); filter: drop-shadow(0 0 6px rgba(56,189,248,.35)); }
+  .pt { position: absolute; transform: translate(-50%,-50%) scale(0); transition: transform .35s cubic-bezier(.34,1.56,.64,1); }
+  .pt i { display:block; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 2.5px solid var(--c); box-shadow: 0 0 14px var(--c); }
+  .pt span { position:absolute; left:50%; transform:translateX(-50%); font: 700 11px var(--mono); color: var(--c); letter-spacing: .1em; white-space: nowrap; }
+  .pt.up span { bottom: 20px; } .pt.down span { top: 20px; }
+  .tag-loss { position:absolute; font: 700 10px var(--mono); letter-spacing:.15em; color: var(--red); background: rgba(248,113,113,.1); border:1px solid rgba(248,113,113,.3); border-radius: 4px; padding: 3px 7px; transform: translate(-50%, 0); opacity:0; transition: opacity .4s ease .7s; white-space: nowrap; }
+  .tag-now { position:absolute; font: 700 10px var(--mono); letter-spacing:.15em; color: var(--green); background: rgba(74,222,128,.1); border:1px solid rgba(74,222,128,.3); border-radius: 4px; padding: 3px 7px; transform: translate(-100%, -50%); opacity:0; transition: opacity .4s ease 1.9s; white-space: nowrap; }
+
+  .cards { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 16px; margin-top: 28px; }
+  .card { position: relative; background: var(--surface); border: 1px solid var(--border); border-top: 2px solid var(--c); border-radius: 10px; padding: 18px 18px 20px; opacity: 0; transform: translateY(14px); transition: opacity .5s, transform .5s, box-shadow .3s; }
+  .card::before { content:""; position:absolute; left:50%; top:-30px; height: 28px; border-left: 1px dashed color-mix(in srgb, var(--c) 50%, transparent); }
+  .card:hover { box-shadow: 0 14px 34px -18px var(--c); transform: translateY(-3px); }
+  .num { font: 700 11px var(--mono); color: var(--c); letter-spacing: .12em; }
+  .card h3 { margin: 8px 0 0; font: 700 13px/1.35 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+  .card p { margin: 10px 0 0; font: 400 14px/1.6 var(--sans); color: var(--muted); }
+  .card blockquote { margin: 12px 0 0; padding-left: 10px; border-left: 2px solid var(--red); font: italic 700 15px/1.45 var(--serif); color: #fff; }
+
+  .on .line { stroke-dashoffset: 0; } .on .area { opacity: 1; } .on .tag-loss, .on .tag-now { opacity: 1; }
+  .on .pt { transform: translate(-50%,-50%) scale(1); }
+  .on .card { opacity: 1; transform: none; }
+
+  @media (max-width: 860px) {
+    .chart { height: 150px; }
+    .pt span { display: none; }
+    .tag-loss, .tag-now { display: none; }
+    .cards { grid-template-columns: 1fr; gap: 14px; }
+    .card::before { display: none; }
+    .card { border-top: 1px solid var(--border); border-left: 3px solid var(--c); }
+  }
+  body.static * { transition: none !important; }
+</style>
+</head>
+<body>
+<div class="wrap" id="scene">
+  <div class="head">
+    <h2>Az utam</h2><div class="bar"></div>
+    <p class="sub">Sok pofont kaptam már a piactól. Segítek, hogy te elkerüld ezeket.</p>
+  </div>
+  <div class="chart" id="chart">
+    <svg id="svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="lineg" x1="0" x2="1"><stop offset="0" stop-color="#38bdf8"/><stop offset=".25" stop-color="#f87171"/><stop offset=".5" stop-color="#38bdf8"/><stop offset="1" stop-color="#4ade80"/></linearGradient>
+        <linearGradient id="fillg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="rgba(74,222,128,.14)"/><stop offset="1" stop-color="rgba(56,189,248,0)"/></linearGradient>
+      </defs>
+      <g class="grid" id="grid"></g>
+      <path class="area" id="area"/>
+      <path class="line" id="line" pathLength="1"/>
+    </svg>
+  </div>
+  <div class="cards" id="cards"></div>
+</div>
+<script>
+const steps = [
+  ["01","Középiskola","Először találkoztam a befektetések világával – és azonnal magával ragadott.",null,"#38bdf8",.48],
+  ["02","Kezdő hibák","2024 májusában fektettem be először. Stratégia nélkül, érzelmi alapon – tőkevesztés lett a vége.","Nem a piac ellen dolgoztam. Önmagam ellen.","#f87171",.86],
+  ["03","Tanulás","Tudatosan kezdtem el tanulni: piacelemzés, kockázatkezelés, indikátorok, pszichológia.",null,"#38bdf8",.62],
+  ["04","Megértés","Rájöttem: a befektetés nem szerencse – hanem fegyelem, stratégia és kockázatkezelés.",null,"#4ade80",.36],
+  ["05","Strukturált rendszer","Ma már átlátható, ismételhető folyamattal dolgozom – érzelmek nélkül, adatok alapján.",null,"#4ade80",.12],
+];
+const cards = document.getElementById("cards");
+cards.innerHTML = steps.map(s => `<article class="card" style="--c:${s[4]}"><div class="num">${s[0]}</div><h3>${s[1]}</h3><p>${s[2]}</p>${s[3]?`<blockquote>„${s[3]}”</blockquote>`:""}</article>`).join("");
+function layout(){
+  const chart = document.getElementById("chart"), svg = document.getElementById("svg");
+  const W = chart.clientWidth, H = chart.clientHeight;
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  const cs = [...cards.children], r0 = chart.getBoundingClientRect();
+  const oneRow = cs[0].getBoundingClientRect().top === cs[4].getBoundingClientRect().top;
+  const xs = cs.map((c,i) => oneRow ? c.getBoundingClientRect().left + c.offsetWidth/2 - r0.left : W*(0.08 + i*0.21));
+  const pts = steps.map((s,i) => [xs[i], s[5]*H]);
+  let d = `M0 ${pts[0][1]} L${pts[0][0]} ${pts[0][1]}`;
+  for (let i=1;i<pts.length;i++){ const [x0,y0]=pts[i-1],[x1,y1]=pts[i], mx=(x0+x1)/2; d += ` C${mx} ${y0} ${mx} ${y1} ${x1} ${y1}`; }
+  d += ` L${W} ${pts[4][1]-6}`;
+  document.getElementById("line").setAttribute("d", d);
+  document.getElementById("area").setAttribute("d", d + ` L${W} ${H} L0 ${H} Z`);
+  document.getElementById("grid").innerHTML = [.25,.5,.75].map(f=>`<line x1="0" x2="${W}" y1="${f*H}" y2="${f*H}"/>`).join("");
+  chart.querySelectorAll(".pt,.tag-loss,.tag-now").forEach(e=>e.remove());
+  pts.forEach(([x,y],i)=>{ const el=document.createElement("div"); el.className="pt "+(i===1?"down":"up"); el.style.cssText=`left:${x}px;top:${y}px;--c:${steps[i][4]};transition-delay:${0.15+i*0.36}s`; el.innerHTML=`<i></i><span>${steps[i][0]}</span>`; chart.appendChild(el); });
+  const loss=document.createElement("div"); loss.className="tag-loss"; loss.textContent="TŐKEVESZTÉS"; loss.style.left=(pts[1][0]+78)+"px"; loss.style.top=(pts[1][1]+8)+"px"; chart.appendChild(loss);
+  const now=document.createElement("div"); now.className="tag-now"; now.textContent="MA"; now.style.left=(W)+"px"; now.style.top=(pts[4][1]-30)+"px"; chart.appendChild(now);
+  cs.forEach((c,i)=>c.style.transitionDelay=(0.3+i*0.36)+"s");
+}
+layout(); addEventListener("resize", layout);
+const scene = document.getElementById("scene");
+if (location.search.includes("static")) { document.body.classList.add("static"); scene.classList.add("on"); }
+else new IntersectionObserver((e,o)=>{ if(e[0].isIntersecting){ scene.classList.add("on"); o.disconnect(); } },{threshold:.3}).observe(document.getElementById("chart"));
+</script>
+</body>
+</html>
